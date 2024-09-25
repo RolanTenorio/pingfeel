@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: transform 1s ease, opacity 1s ease; /* Cambia la transición */
+}
+
+/* Cambiar el color de fondo del preloader según el momento del día */
+body[data-time='day'] #preloader {
+    background: #F9F9F9; /* Color de fondo durante el día */
+}
+
+body[data-time='night'] #preloader {
+    background: #232543; /* Color de fondo durante la noche */
+}
+
+#preloader img {
+    width: 15vw;
+    max-width: 150px;
+    height: auto;
+}
+
+@media (max-width: 600px) {
+    #preloader img {
+        width: 40vw;
+        max-width: 500px;
+    }
+}
+
+body {
+    font-family: "Josefin Sans", sans-serif;
+}
+
+#home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra todos los elementos */
+    width: 100%;
+}
+
+#penguinImage {
+    width: 25vw; /* Ajustar tamaño según lo requerido */
+    max-width: 300px; /* Tamaño máximo */
+    height: auto; /* Mantiene proporción */
+    margin-right: 20px; /* Espacio entre el pingüino y el texto */
+}
+
+.text-container {
+    text-align: left; /* Alinear texto a la izquierda */
+    max-width: 400px; /* Ancho máximo para el texto */
+}
+
+h1 {
+    color: #333;
+    font-size: 3.5em; /* Tamaño más grande */
+    margin-bottom: 5px;
+}
+
+h2 {
+    color: #666;
+    font-size: 1.5em; /* Ajuste el tamaño */
+    margin-top: 10px; /* Espacio superior */
+    line-height: 1.4; /* Mejora la legibilidad */
+}
+
+/* Cambia el fondo según el momento del día */
+body[data-time='day'] {
+    background: url('../fondo_dia.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+body[data-time='night'] {
+    background: url('../fondo_noche.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Nueva sección con fondo desenfocado */
+#feelings-section {
+    position: relative;
+    height: auto; /* Ajusta la altura para que se adapte al contenido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(52, 51, 51, 0.7); /* Color de fondo actual */
+    backdrop-filter: blur(10px); /* Desenfoque de fondo */
+    padding: 30px; /* Padding para el cuadro */
+    border-radius: 15px; /* Bordes redondeados */
+    margin: 20px; /* Espacio adicional para separación */
+}
+
+/* Estilo para los botones de emociones */
+.emotion-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Espacio entre los botones */
+}
+
+.texto {
+    padding: 15px;
+}
+
+.emotion-button {
+    background-color: #bacaef; /* Color de fondo por defecto */
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.emotion-button img {
+    width: 90px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+}
+
+.emotion-button:hover {
+    transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
+    background-color: #95a6e4; /* Cambia el color de fondo al pasar el mouse */
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    #home {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header-container {
+        flex-direction: column; /* Cambia la dirección a columna para el texto */
+        align-items: center; /* Centrar el texto */
+    }
+
+    #penguinImage {
+        width: 55vw;
+        margin-right: 0; /* Elimina margen en pantallas pequeñas */
+        margin-bottom: 20px; /* Agrega margen inferior al pingüino */
+    }
+
+    h1, h2 {
+        text-align: center; /* Centrar texto en móvil */
+    }
+
+    #feelings-section {
+        padding: 10px; /* Mantiene el padding en pantallas pequeñas */
+        border-radius: 10px; /* Reduce el radio de los bordes en pantallas pequeñas */
+    }
+
+    .emotion-button {
+        padding: 15px; /* Tamaño del botón en móvil */
+    }
+}
+
+/* Cambiar el color del texto según el tiempo */
+body[data-time='day'] h1, body[data-time='day'] h2 {
+    color: black; /* Texto negro durante el día */
+}
+
+body[data-time='night'] h1, body[data-time='night'] h2 {
+    color: white; /* Texto blanco durante la noche */
+}
+
+/* Color específico para el h1 en la sección de sentimientos */
+#feelings-section h1 {
+    color: white; /* Color blanco para el h1 en la sección de sentimientos */
+}
